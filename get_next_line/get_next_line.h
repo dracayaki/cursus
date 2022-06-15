@@ -6,7 +6,7 @@
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 12:14:03 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/06/13 18:16:40 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/06/15 11:46:19 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@
 #  define BUFFER_SIZE 100
 # endif
 
-char	*ft_strchr(const char *s, int c);
-size_t	ft_strlen(const char *str);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strchr(char *s, int c);
+size_t	ft_strlen(char *str);
 char	*ft_read(int fd, char *stash);
+char	*ft_strjoin(char *s1, char *s2);
 
 #endif

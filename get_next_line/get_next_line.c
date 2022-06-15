@@ -6,7 +6,7 @@
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 12:10:50 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/06/13 18:12:20 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/06/15 18:52:53 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,37 @@
 char	*ft_read(int fd, char *stash)
 {
 	char	*buff;
+	char	*del;
+	int		size;
 
 	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buff)
 		return (NULL);
-	read(fd, buff, BUFFER_SIZE);
-	while (!ft_strchr(buff, '\n'))
+	size = 1;
+	while (!ft_strchr(buff, '\n') && size > 0)
 	{
-		read(fd, buff, BUFFER_SIZE);
+		size = read(fd, buff, BUFFER_SIZE);
+		if (size < 1)
+			return (NULL);
+		del = stash;
 		stash = ft_strjoin(stash, buff);
+		free(del);
+	}	
+	return (stash);
+}
+
+char	*ft_get_line(char *stash)
+{
+	char	*str;
+	int		i;
+
+	i = 0;
+	str = ((char *)malloc(sizeof(char) * (i + 2)));
+	while (stash[i] != '\n')
+	{	
+		str[i] = stash[i];
+		i++;
 	}
-	free(buff);
 	return (stash);
 }
 
@@ -42,6 +62,6 @@ int	main(void)
 	int	fd;
 
 	fd = open("random", O_RDONLY);
-	printf("%s", get_next_line(fd));
+	printf("%s|", get_next_line(fd));
 	close(fd);
 }
