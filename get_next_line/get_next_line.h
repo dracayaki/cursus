@@ -6,7 +6,7 @@
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 12:14:03 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/06/15 11:46:19 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/06/27 19:08:20 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,11 @@ char	*ft_strchr(char *s, int c);
 size_t	ft_strlen(char *str);
 char	*ft_read(int fd, char *stash);
 char	*ft_strjoin(char *s1, char *s2);
+void	*ft_memcpy(void *dest, const void *src, unsigned long n);
+char	*ft_strdup(char *src);
+char	*ft_get_next_line(char *stash);
+char	*get_next_line(int fd);
+char	*ft_get_line(char *stash);
+char	*ft_read(int fd, char *stash);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 12:48:21 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/06/15 17:44:31 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/06/30 17:02:47 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	int		len;
 	int		i;
 	int		j;
-
 	if (!s1)
 		return (ft_strdup(s2));
 	len = ft_strlen(s1) + ft_strlen(s2);

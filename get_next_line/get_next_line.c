@@ -6,7 +6,7 @@
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 12:10:50 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/06/15 18:52:53 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/06/30 17:12:28 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,25 +36,65 @@ char	*ft_read(int fd, char *stash)
 
 char	*ft_get_line(char *stash)
 {
-	char	*str;
-	int		i;
+	char		*line;
+	size_t		i;
 
 	i = 0;
-	str = ((char *)malloc(sizeof(char) * (i + 2)));
-	while (stash[i] != '\n')
-	{	
-		str[i] = stash[i];
+	while (stash[i] && stash[i] != '\n')
 		i++;
+	line = (malloc(sizeof(char *) * (i + 2)));
+	if (!line)
+		return (NULL);
+	ft_memcpy(line, stash, i +2);
+	if (line[0] == '\0')
+	{
+		free(line);
+		return (NULL);
 	}
-	return (stash);
+	return (line);
+}
+
+char	*ft_get_next_line(char *stash)
+{
+	char	*nxt;
+	size_t	i;
+
+	i = 0;
+	while (stash[i] != '\n')
+	{
+			i++;
+		if (stash [i] != '\0')
+				i++;
+	}
+	nxt = ((char *)malloc(sizeof(char) * (i + 2)));
+	i = 0;
+	while (stash[i] != '\n')
+	{
+			i++;
+		while (stash[i] == '\n')
+		{
+			nxt[i] = stash[i];
+			if (stash[i] != '\n')
+				nxt[i] = stash[i];
+			i++;
+		}
+	}
+	return (nxt);
 }
 
 char	*get_next_line(int fd)
 {
+	char		*new;
 	static char	*stash;
 
+	if (fd < 0 || BUFFER_SIZE < 1)
+		return (NULL);
 	stash = ft_read(fd, stash);
-	return (stash);
+	if (!stash)
+		return (NULL);
+	new = ft_get_next_line(stash);
+	stash = ft_get_line(stash);
+	return (new);
 }
 
 int	main(void)
