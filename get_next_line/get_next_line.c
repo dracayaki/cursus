@@ -6,7 +6,7 @@
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 12:10:50 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/06/30 17:12:28 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:17:33 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,61 +40,61 @@ char	*ft_get_line(char *stash)
 	size_t		i;
 
 	i = 0;
-	while (stash[i] && stash[i] != '\n')
+	if (!stash)
+		return (0);
+	while (stash[i] && stash[i] != 0)
 		i++;
-	line = (malloc(sizeof(char *) * (i + 2)));
+	line = (char *)malloc(sizeof(char) * (i + 2));
 	if (!line)
-		return (NULL);
-	ft_memcpy(line, stash, i +2);
-	if (line[0] == '\0')
+		return (0);
+	i = 0;
+	while (stash[i] && stash[i] != '\n')
 	{
-		free(line);
-		return (NULL);
+		line[i] = stash[i];
+		i++;
+	}
+	if (stash[i] == '\n')
+	{
+		line[i] = stash[i];
+		i++;
 	}
 	return (line);
 }
 
-char	*ft_get_next_line(char *stash)
+char	*ft_get_next(char *stash)
 {
 	char	*nxt;
 	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while (stash[i] != '\n')
-	{
-			i++;
-		if (stash [i] != '\0')
-				i++;
-	}
-	nxt = ((char *)malloc(sizeof(char) * (i + 2)));
-	i = 0;
-	while (stash[i] != '\n')
-	{
-			i++;
-		while (stash[i] == '\n')
-		{
-			nxt[i] = stash[i];
-			if (stash[i] != '\n')
-				nxt[i] = stash[i];
-			i++;
-		}
-	}
+	while (stash[i] && stash[i] != '\n')
+		i++;
+	nxt = ((char *)malloc(sizeof(char) * ft_strlen(stash) - i +1));
+	if (!nxt)
+		return (0);
+	i++;
+	j = 0;
+	while (stash[i])
+		nxt[j++] = stash[i++];
+	nxt[j] = '\0';
+	free(stash);
 	return (nxt);
 }
 
 char	*get_next_line(int fd)
 {
-	char		*new;
 	static char	*stash;
+	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE < 1)
-		return (NULL);
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (0);
 	stash = ft_read(fd, stash);
 	if (!stash)
-		return (NULL);
-	new = ft_get_next_line(stash);
-	stash = ft_get_line(stash);
-	return (new);
+		return (0);
+	line = ft_get_line(stash);
+	stash = ft_get_next(stash);
+	return (line);
 }
 
 int	main(void)
