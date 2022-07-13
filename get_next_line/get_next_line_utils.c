@@ -6,7 +6,7 @@
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 12:48:21 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/07/07 16:13:18 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/07/11 15:30:20 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	*ft_strdup(char *src)
 	i = 0;
 	if (!src)
 		return (NULL);
-	dest = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1));
+	dest = (char *)malloc(sizeof(char) * (ft_strlen((char *)src) + 1));
 	if (!dest)
 		return (NULL);
 	while (src[i])

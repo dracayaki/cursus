@@ -6,7 +6,7 @@
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 12:10:50 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/07/07 16:05:40 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/07/11 15:26:18 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char	*ft_get_next(char *stash)
 		free(stash);
 		return (NULL);
 	}
-	nxt = (char *)malloc(sizeof(char) * ft_strlen(stash) - i + 1);
+	nxt = (char *)malloc(sizeof(char) * (ft_strlen(stash) - i + 1));
 	if (!nxt)
 		return (0);
 	i++;
