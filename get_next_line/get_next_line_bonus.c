@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/13 12:10:50 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/07/14 12:48:56 by mmagma-g         ###   ########.fr       */
+/*   Created: 2022/07/14 12:44:16 by mmagma-g          #+#    #+#             */
+/*   Updated: 2022/07/14 12:48:31 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_read(int fd, char *stash)
 {
@@ -93,34 +93,15 @@ char	*ft_save_next(char *stash)
 
 char	*get_next_line(int fd)
 {
-	static char	*stash;
+	static char	*stash[256];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 256)
 		return (0);
-	stash = ft_read(fd, stash);
-	if (!stash)
+	stash[fd] = ft_read(fd, stash[fd]);
+	if (!stash[fd])
 		return (0);
-	line = ft_get_line(stash);
-	stash = ft_save_next(stash);
+	line = ft_get_line(stash[fd]);
+	stash[fd] = ft_save_next(stash[fd]);
 	return (line);
 }
-
-/* int	main(void)
-{
-	int		fd;
-	int		i;
-	char	*c;
-
-	i = 0;
-	fd = open("random", O_RDONLY);
-	while (i < 10)
-	{
-		c = get_next_line(fd);
-		printf(">%s<\n", c);
-		free(c);
-		i++;
-	}
-	close(fd);
-}
-  */
