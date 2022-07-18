@@ -6,30 +6,48 @@
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 17:50:22 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/07/18 17:58:09 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/07/18 18:28:38 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void ft_putnbr(int n)
+unsigned int	ft_putnbr(int nb)
+
 {
-   if (n == -2147483648)
+	unsigned int i;
+
+	i = 0;
+	if (nb == -2147483648)
 	{
-		write(fd, "-2147483648", 11);
+		write(1, "-2147483648", 11);
 		return (11);
 	}
-    if (n < 0)
-    {
-        n = n * -1;
-        write(1, "-", 1); 
-    }
-    if (n < 10)
-    {
-        n += '0';
-        write(1, &n, 1);
-    }
-    else
-    {
-        ft_putnbr()
-    }
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+		i++;
+	}
+	if (nb < 10)
+	{
+		ft_putchar(nb + '0');
+		i++;
+	}
+	else
+	{
+		i += ft_putnbr(nb / 10);
+		i += ft_putnbr(nb % 10);
+	}
+	return (i);
+}
+
+/*
+int main()
+{
+    unsigned int i;
+
+    i = ft_putnbr(-2147483648);
+    printf("\n%d", i);
+}
+*/
