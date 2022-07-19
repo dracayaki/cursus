@@ -6,20 +6,16 @@
 #    By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 16:39:04 by mmagma-g          #+#    #+#              #
-#    Updated: 2022/07/18 16:42:34 by mmagma-g         ###   ########.fr        #
+#    Updated: 2022/07/19 17:11:01 by mmagma-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libftprintf.a
 
 
-SRCS	=	
+SRCS	=	ft_printf.c ft_print_numbers.c ft_print_chars.c
 
 OBJS	=	${SRCS:.c=.o}
-
-BONUS	=	
-
-BONUS_OBJS	=	${BONUS:.c=.o}
 
 
 CC		= gcc
@@ -34,11 +30,11 @@ $(NAME):
 		${CC} -c ${CFLAGS} ${SRCS} 
 		ar crs ${NAME} ${OBJS}
 
-bonus:		${OBJS} ${BONUS_OBJS}
-			ar crs ${NAME} ${OBJS} ${BONUS_OBJS}
+bonus:		${OBJS}
+			ar crs ${NAME} ${OBJS}
 
 clean:
-			${RM} ${OBJS} ${BONUS_OBJS}		
+			${RM} ${OBJS}
 
 fclean:		clean
 				${RM} ${NAME}

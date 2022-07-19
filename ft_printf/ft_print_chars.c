@@ -6,16 +6,16 @@
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 17:40:17 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/07/18 18:32:35 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/07/19 18:42:01 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-unsigned int	ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
-    return (1);
+	return(1);
 }
 
 unsigned int	ft_putstr(char *s)
@@ -39,12 +39,9 @@ unsigned int	ft_print_percent(void)
 	return (1);
 }
 
-int main()
+/* int	main(void)
 {
-    char i;
-
-    i = 'x';
-    printf("| %c\n", ft_putchar(i));
-    printf("| %u\n", ft_putstr("hola"));
-    printf("| %c\n", ft_print_percent());
-}
+	printf("| %u\n", ft_putchar('i'));
+	printf("| %u\n", ft_putstr("hola"));
+	printf("| %u\n", ft_print_percent());
+} */
