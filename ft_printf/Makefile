@@ -6,14 +6,14 @@
 #    By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 16:39:04 by mmagma-g          #+#    #+#              #
-#    Updated: 2022/07/19 17:11:01 by mmagma-g         ###   ########.fr        #
+#    Updated: 2022/07/20 17:56:50 by mmagma-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libftprintf.a
 
 
-SRCS	=	ft_printf.c ft_print_numbers.c ft_print_chars.c
+SRCS	=	ft_printf.c ft_print_numbers.c ft_print_chars.c ft_print_hex_numbers.c \
 
 OBJS	=	${SRCS:.c=.o}
 

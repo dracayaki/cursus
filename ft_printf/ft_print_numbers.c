@@ -6,7 +6,7 @@
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 17:50:22 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/07/19 18:41:05 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/07/20 17:59:06 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,22 +54,22 @@ int	ft_unsignednb(unsigned int nb)
 		i++;
 	}
 	else
-	{
-		i += ft_putnbr(nb / 10);
-		i += ft_putnbr(nb % 10);
+	{		
+		i += ft_unsignednb(nb / 10);
+		i += ft_unsignednb(nb % 10);
 	}
 	return(i);
 }
 
+/*
 int	main(void)
 {
-	unsigned int	i;
-	unsigned int j;
+	unsigned int	j;
+	unsigned int	x;
 
-	i = ft_putnbr(-2147483648);
-	printf("\n%d", i);
-	i = ft_unsignednb(-5);
-	printf(" || %u ||", i);
-	j = -5;
-	printf("%u", j);
+	x = ft_unsignednb(-5);
+	//printf(" %u ||", x);
+	j = -5;	
+	//	printf("%u", j);
 }
+*/
