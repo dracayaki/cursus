@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_hex_numbers.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmagma-g <mmagma-g@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 15:30:36 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/07/20 16:08:10 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/07/21 19:21:46 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-unsigned int	ft_puthex(const char *str, unsigned long  nb)
+unsigned int	ft_puthex(const char *str, unsigned long long nb)
 {
 	unsigned int	i;
 

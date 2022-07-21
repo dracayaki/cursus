@@ -6,19 +6,19 @@
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 17:40:17 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/07/20 12:12:07 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/07/20 18:15:17 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(char c)
+int	ft_putchar(int c)
 {
 	write(1, &c, 1);
-	return(1);
+	return (1);
 }
 
-unsigned int	ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ unsigned int	ft_putstr(char *s)
 	return (i);
 }
 
-unsigned int	ft_print_percent(void)
+int	ft_print_percent(void)
 {
 	write(1, "%", 1);
 	return (1);

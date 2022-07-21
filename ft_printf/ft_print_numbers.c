@@ -6,16 +6,16 @@
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 17:50:22 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/07/20 17:59:06 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/07/20 18:13:19 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-unsigned int	ft_putnbr(int nb)
+int	ft_putnbr(int nb)
 
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
 	if (nb == -2147483648)
@@ -45,10 +45,10 @@ unsigned int	ft_putnbr(int nb)
 int	ft_unsignednb(unsigned int nb)
 
 {	
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	if (nb >= 0 && nb < 10 )
+	if (nb >= 0 && nb < 10)
 	{
 		ft_putchar(nb + '0');
 		i++;
@@ -58,7 +58,7 @@ int	ft_unsignednb(unsigned int nb)
 		i += ft_unsignednb(nb / 10);
 		i += ft_unsignednb(nb % 10);
 	}
-	return(i);
+	return (i);
 }
 
 /*
