@@ -6,7 +6,7 @@
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 15:30:36 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/07/21 19:21:46 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/07/25 11:48:58 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 unsigned int	ft_puthex(const char *str, unsigned long long nb)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	if (nb < 17)
+	if (nb < 16)
 	{
 		ft_putchar(str[nb]);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 16:55:01 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/07/21 19:22:20 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/07/25 11:56:36 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int	ft_format(va_list arg_ptr, const char format)
 	else if (format == 'u')
 		len += ft_unsignednb(va_arg(arg_ptr, unsigned int));
 	else if (format == 'x')
-		len += ft_puthex("0123456789abcdef", va_arg(arg_ptr, unsigned long));
+		len += ft_puthex("0123456789abcdef", va_arg(arg_ptr, unsigned int));
 	else if (format == 'X')
-		len += ft_puthex("0123456789ABCDEF", va_arg(arg_ptr, unsigned long));
+		len += ft_puthex("0123456789ABCDEF", va_arg(arg_ptr, unsigned int));
 	else if (format == '%')
 		len += ft_print_percent();
 	return (len);
@@ -64,28 +64,3 @@ int	ft_printf(const char *s, ...)
 	va_end(arg_ptr);
 	return (len);
 }
-
-/* int	main(void)
-{
-	ft_printf(" NULL %s NULL \n", NULL);
-	printf(" NULL %s NULL \n", NULL);
-	ft_printf(" %p \n", 16);
-	printf(" %p \n", 16);
-	ft_printf(" %x \n", 16);
-	printf(" %x \n", 16);
-	ft_printf(" %x \n", LONG_MAX);
-	printf(" %x \n", LONG_MAX);
-	ft_printf(" %x \n", LONG_MIN);
-	printf(" %x \n", LONG_MIN);
-	ft_printf(" %x \n", ULONG_MAX);
-	printf(" %x \n", ULONG_MAX);
-	ft_printf(" %x \n", 9223372036854775807LL);
-	printf(" %x \n", 9223372036854775807LL);
-	ft_printf(" %x %x %x %x %x %x %x\n", INT_MAX, INT_MIN, 
-	LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
-	printf(" %x %x %x %x %x %x %x\n", INT_MAX, INT_MIN,
-	 LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
-	ft_printf("9 %c %c %c \n", 0, '1', '2');
-	printf("9: %c %c %c \n", 0, '1', '2');
-}
- */

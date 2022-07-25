@@ -6,7 +6,7 @@
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 17:50:22 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/07/20 18:13:19 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/07/25 11:57:14 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,3 @@ int	ft_unsignednb(unsigned int nb)
 	}
 	return (i);
 }
-
-/*
-int	main(void)
-{
-	unsigned int	j;
-	unsigned int	x;
-
-	x = ft_unsignednb(-5);
-	//printf(" %u ||", x);
-	j = -5;	
-	//	printf("%u", j);
-}
-*/

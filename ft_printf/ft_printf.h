@@ -6,7 +6,7 @@
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 16:48:05 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/07/21 19:22:37 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/07/25 11:49:11 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <string.h>
 
 int				ft_putchar(int c);
 int				ft_putstr(char *s);
