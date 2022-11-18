@@ -6,7 +6,7 @@
 /*   By: mmagma-g <mmagma-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 18:07:50 by mmagma-g          #+#    #+#             */
-/*   Updated: 2022/11/18 18:56:05 by mmagma-g         ###   ########.fr       */
+/*   Updated: 2022/11/18 20:29:23 by mmagma-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_message_received(int sig)
 		i = 1;
 		str = 0;
 	}
-	str |= (sig == SIGSR1);
+	str |= (sig == SIGUSR2);
 	if (i++ == 8)
 	{
 		ft_putchar_fd(str, 1);
@@ -30,15 +30,14 @@ void	ft_message_received(int sig)
 		str = 0;
 	}
 	else
-		c <<= 1;
+		str <<= 1;
 }
 
 int	main(void)
 {
-	signal(SIGUSR1, ft_message_received);
-	signal(SIGUSR2, ft_message_received);
 	ft_printf("The Server PID is: %d\n", getpid());
+	signal(SIGUSR2, ft_message_received);
+	signal(SIGUSR1, ft_message_received);
 	while (1)
 		pause();
-	return (0);
 }
